@@ -1,0 +1,11 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.vscode/
+.idea/
+
+# Typst / build artifacts (templates are sources; compiled output is not tracked)
+*.pdf
+!**/figures/*.pdf

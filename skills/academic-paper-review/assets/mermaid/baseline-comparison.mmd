@@ -1,0 +1,27 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: "#eef3f8"
+    primaryBorderColor: "#5a7d9a"
+    primaryTextColor: "#1a2733"
+    lineColor: "#5a7d9a"
+    fontFamily: "Segoe UI, Arial"
+---
+%% Use to expose a strawman baseline: what the paper compares against
+%% vs. what the field would expect. Adapt labels to the domain.
+flowchart TB
+  subgraph Paper["What the paper benchmarks"]
+    direction LR
+    P1["Proposed method"] -. "claims large win" .-> P2["Weak / brute-force baseline"]
+  end
+  subgraph Field["What the field expects"]
+    direction LR
+    F1["Proposed method"] --> F2["Strong baseline<br/>(e.g. IVF / HNSW ANN)"]
+  end
+  Paper ~~~ Field
+
+  classDef bad fill:#fdedec,stroke:#c0392b,color:#7b241c;
+  classDef good fill:#eafaf1,stroke:#1e8449,color:#145a32;
+  class P2 bad
+  class F2 good

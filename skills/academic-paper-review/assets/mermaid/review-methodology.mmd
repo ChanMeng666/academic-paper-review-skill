@@ -1,0 +1,25 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: "#eef3f8"
+    primaryBorderColor: "#5a7d9a"
+    primaryTextColor: "#1a2733"
+    lineColor: "#5a7d9a"
+    fontFamily: "Segoe UI, Arial"
+---
+flowchart TD
+  M["Manuscript<br/>(read-only)"] --> R[Read in full]
+  R --> L1["Editorial lens<br/>consistency · statistics<br/>citations · writing"]
+  R --> L2["Technical / domain lens<br/>baselines · metrics<br/>methodology"]
+  L1 --> V{"Load-bearing<br/>external claim?"}
+  L2 --> V
+  V -- yes --> P["Verify vs. primary source<br/>recompute statistics"]
+  V -- no --> F["Record finding<br/>location → issue → why → fix"]
+  P --> F
+  F --> D["Deliverable<br/>reviewer letter / audit report"]
+
+  classDef good fill:#eafaf1,stroke:#1e8449,color:#145a32;
+  classDef out fill:#fdf2e9,stroke:#d68910,color:#7e5109;
+  class P good
+  class D out

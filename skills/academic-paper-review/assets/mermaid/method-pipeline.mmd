@@ -1,0 +1,29 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: "#eef3f8"
+    primaryBorderColor: "#5a7d9a"
+    primaryTextColor: "#1a2733"
+    lineColor: "#5a7d9a"
+    fontFamily: "Segoe UI, Arial"
+---
+%% Generic template: summarize the method under review.
+%% Replace node labels with the paper's actual offline/online stages.
+flowchart LR
+  subgraph Offline["Offline / indexing"]
+    direction TB
+    A[Corpus] --> B["Stage 1<br/>(e.g. embed)"]
+    B --> C["Stage 2<br/>(e.g. partition)"]
+    C --> D[("Index / Map")]
+  end
+  subgraph Online["Online / query time"]
+    direction TB
+    Q[Query] --> E["Routing / scoring"]
+    D --> E
+    E --> O["Top-K results"]
+  end
+  Offline --> Online
+
+  classDef store fill:#eef3f8,stroke:#2c5f7c,color:#1a2733,stroke-width:1.5px;
+  class D store
